@@ -1,0 +1,40 @@
+UseCase
+===========
+Create a dockerfile to use nginx as base image and specify
+the maintainer as hari
+
+1 Create docker file
+vim dockerfile
+
+FROM nginx
+MAINTAINER hari
+
+2 To create an image from this file
+  docker build -t mynginx .
+
+3 Check if the image is created or not
+  docker images
+
+-----------------------------------------------------------------------
+UseCase
+==============
+Create a dockerfile from ubuntu base image and install 
+git in it
+
+1 Create dockerfile
+  vim dockerfile
+  FROM ubuntu
+  MAINTAINER hari
+  RUN apt update
+  RUN apt install -y git
+
+2 Create an image from the above file
+  docker build -t myubuntu .
+
+3 Check if the new image is created
+  docker images
+
+4 Create a container from the new image and it should have git installed
+  docker run  --name u1 -it myubuntu
+  git --version
+
